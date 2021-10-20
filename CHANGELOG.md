@@ -8,6 +8,14 @@ This document is formatted according to the principles of [Keep A CHANGELOG](htt
 
 ---
 
+## [v0.12.3]
+
+### Added
+
+- Automated binary releases with GitHub Actions
+- Automated binary versioning with `go install`
+- Module with local replace in examples
+
 ## [v0.12.2]
 
 ### Fixed
