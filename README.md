@@ -44,19 +44,20 @@ When automated testing is this much fun, teams can easily protect themselves fro
 - [Gherkin Reference](https://cucumber.io/docs/gherkin/reference/)
 
 ## Install
-```
-go get github.com/cucumber/godog/cmd/godog@v0.12.0
-```
-Adding `@v0.12.0` will install v0.12.0 specifically instead of master.
 
-Running `within the $GOPATH`, you would also need to set `GO111MODULE=on`, like this:
+Godog can operate as a standalone CLI runner or as a library in context of `go test`.
+
+You can download prebuilt binary from [releases](https://github.com/cucumber/godog/releases).
+
+Or build and install it with Go.
 ```
-GO111MODULE=on go get github.com/cucumber/godog/cmd/godog@v0.12.0
+go install github.com/cucumber/godog/cmd/godog@latest
 ```
+Using `@v0.12.0` instead of `@latest` will install v0.12.0 specifically instead of the latest available version.
 
 ## Contributions
 
-Godog is a community driven Open Source Project within the Cucumber organization, it is maintained by a handfull of developers, but we appreciate contributions from everyone.
+Godog is a community driven Open Source Project within the Cucumber organization, it is maintained by a handful of developers, but we appreciate contributions from everyone.
 
 If you are interested in developing Godog, we suggest you to visit one of our slack channels.
 
@@ -243,7 +244,7 @@ godogs
 - godogs_test.go
 ```
 
-#### Step 6 - Add some logic to the step defintions
+#### Step 6 - Add some logic to the step definitions
 
 Now lets implement our step definitions to test our feature requirements:
 

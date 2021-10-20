@@ -1,6 +1,6 @@
 .PHONY: test gherkin bump cover
 
-VERS := $(shell grep 'const Version' -m 1 godog.go | awk -F\" '{print $$2}')
+VERS ?= $(shell git symbolic-ref -q --short HEAD || git describe --tags --exact-match)
 
 test:
 	@echo "running all tests"
