@@ -12,9 +12,9 @@ This document is formatted according to the principles of [Keep A CHANGELOG](htt
 
 ### Added
 
-- Automated binary releases with GitHub Actions
-- Automated binary versioning with `go install`
-- Module with local replace in examples
+- Automated binary releases with GitHub Actions ([437]((https://github.com/cucumber/godog/pull/437) - [vearutop])
+- Automated binary versioning with `go install` ([437]((https://github.com/cucumber/godog/pull/437) - [vearutop])
+- Module with local replace in examples ([437]((https://github.com/cucumber/godog/pull/437) - [vearutop])
 
 ## [v0.12.2]
 
