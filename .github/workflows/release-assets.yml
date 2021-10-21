@@ -6,6 +6,7 @@ on:
       - created
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  VERS: ${{ github.event.release.tag_name }}
 
 jobs:
   build:
