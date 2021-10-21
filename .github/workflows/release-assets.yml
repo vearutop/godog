@@ -21,6 +21,7 @@ jobs:
       - name: Build artifacts
         run: |
           VERS=${{ github.event.release.tag_name }} make artifacts
+          ./_artifacts/godog-${{ github.event.release.tag_name }}-linux-amd64/godog --version
       - name: Upload linux amd64 binary
         uses: actions/upload-release-asset@v1
         with:
