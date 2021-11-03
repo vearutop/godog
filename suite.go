@@ -95,14 +95,21 @@ func (s *suite) runStep(ctx context.Context, pickle *Scenario, step *Step, prevS
 		}()
 
 		if prevStepErr != nil {
+			//rctx, err = s.runAfterStepHooks(ctx, step, sr.Status, err)
+
 			return
 		}
 
 		if err == ErrUndefined {
+			//rctx, err = s.runAfterStepHooks(ctx, step, sr.Status, err)
+
 			return
 		}
 
 		sr = models.NewStepResult(pickle.Id, step.Id, match)
+
+		// Run after step handlers.
+		//rctx, err = s.runAfterStepHooks(ctx, step, sr.Status, err)
 
 		// Trigger after scenario on failing or last step to attach possible hook error to step.
 		if (err == nil && isLast) || err != nil {
@@ -215,6 +222,7 @@ func (s *suite) runBeforeStepHooks(ctx context.Context, step *Step, err error) (
 }
 
 func (s *suite) runAfterStepHooks(ctx context.Context, step *Step, status StepResultStatus, err error) (context.Context, error) {
+	println("after step")
 	for _, f := range s.afterStepHandlers {
 		hctx, herr := f(ctx, step, status, err)
 
@@ -262,6 +270,7 @@ func (s *suite) runBeforeScenarioHooks(ctx context.Context, pickle *messages.Pic
 }
 
 func (s *suite) runAfterScenarioHooks(ctx context.Context, pickle *messages.Pickle, lastStepErr error) (context.Context, error) {
+	println("after scenario")
 	err := lastStepErr
 
 	hooksFailed := false

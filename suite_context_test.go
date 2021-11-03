@@ -12,8 +12,6 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/cucumber/gherkin-go/v19"
-	"github.com/cucumber/messages-go/v16"
 	"github.com/stretchr/testify/assert"
 
 	"github.com/cucumber/godog/colors"
@@ -471,6 +469,11 @@ func (tc *godogFeaturesScenario) iAmListeningToSuiteEvents() error {
 
 		if ctx.Value(ctxKey("BeforeScenario")) == nil {
 			return ctx, errors.New("missing BeforeScenario in context")
+		}
+
+		if ctx.Value(ctxKey("AfterScenario")) != nil {
+			panic("AAA!")
+			return ctx, errors.New("unexpected premature AfterScenario during AfterStep")
 		}
 
 		if ctx.Value(ctxKey("BeforeStep")) == nil {
